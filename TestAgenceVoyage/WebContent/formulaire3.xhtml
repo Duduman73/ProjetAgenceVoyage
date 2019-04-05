@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+<h:head>
+<style>
+ body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 2;
+    color: #00008B;
+    
+  }
+  
+ .Fimage{
+background-attachment:fixed;
+background-image:url(/TestAgenceVoyage/resources/image/formulaire3.jpg);
+background-size:cover;
+
+}
+
+
+</style>
+
+<title>Agence de voyage</title>
+<script name="jquery/jquery.js" library="primefaces"></script>
+
+</h:head>
+
+<h:body styleClass="Fimage">
+ 
+ <center>
+ <h2><u>Formulaire de paiement</u></h2>
+ <h:form>
+ <h:panelGrid columns="1" align-text="center">
+ 
+ <h:form>
+ Cartes acceptées:
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+    
+        <p:selectOneRadio>
+            <f:selectItem itemLabel="Visa" itemValue="Visa" />
+            </p:selectOneRadio>
+            <p:graphicImage library="logo" name="visa.png" style="width: 50px; height: 30px;"/>
+            <p:selectOneRadio>
+            <f:selectItem itemLabel="Master Card" itemValue="Master Card" />
+            </p:selectOneRadio>
+            <p:graphicImage library="logo" name="mastercard.png" style="width: 50px; height: 30px;"/>
+            <p:selectOneRadio>
+            <f:selectItem itemLabel="Carte Bleue" itemValue="Carte Bleue" />
+            </p:selectOneRadio>
+            <p:graphicImage library="logo" name="carteBleue.png" style="width: 50px; height: 30px;"/>
+    </h:panelGrid>
+    </h:form>
+ 
+ Nom du titulaire du compte:
+		<h:inputText id="nom" value="#{formulaire3.nom}" style="width: 230px;padding-bottom: 10px;" required="true" label="Contact nom" >
+      </h:inputText>
+      <br/>  
+      
+<!-- Numéro de carte: -->
+		<p:outputLabel for="nbCarte" value="Numéro de carte:" />
+        <p:inputMask id="nbCarte" value="#{contact.nbCarte}" mask=" 9999-9999-9999-9999"/>
+      <br/>	 
+ 
+ <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5">     
+ <h:outputLabel for="mois" value="Date d'expiration:" />
+        <p:selectOneMenu id="mois" value="#{checkboxView3.selectedMonth}" style="width:125px">
+            <f:selectItem itemLabel="Sélectionner" itemValue="" />
+            <f:selectItem itemLabel="Janvier" itemValue="Janvier" />
+            <f:selectItem itemLabel="Février" itemValue="Février" />
+            <f:selectItem itemLabel="Mars" itemValue="Mars" />
+        	<f:selectItem itemLabel="Avril" itemValue="Avril" />
+            <f:selectItem itemLabel="Mai" itemValue="Mai" />
+            <f:selectItem itemLabel="Juin" itemValue="Juin" />
+            <f:selectItem itemLabel="Juillet" itemValue="Juillet" />
+            <f:selectItem itemLabel="Août" itemValue="Août" />
+            <f:selectItem itemLabel="Septembre" itemValue="Septembre" />
+            <f:selectItem itemLabel="Octobre" itemValue="Octobre" />
+        	<f:selectItem itemLabel="Novembre" itemValue="Novembre" />
+            <f:selectItem itemLabel="Décembre" itemValue="Décembre" />
+            </p:selectOneMenu>
+            
+            <h:outputLabel for="annee"/>
+        <p:selectOneMenu id="annee" value="#{checkboxView3.selectedYear}" style="width:125px">
+            <f:selectItem itemLabel="Sélectionner" itemValue="" />
+            <f:selectItem itemLabel="2019" itemValue="2019" />
+            <f:selectItem itemLabel="2020" itemValue="2020" />
+            <f:selectItem itemLabel="2021" itemValue="2021" />
+        	<f:selectItem itemLabel="2022" itemValue="2022" />
+            <f:selectItem itemLabel="2023" itemValue="2023" />
+            <f:selectItem itemLabel="2024" itemValue="2024" />
+            <f:selectItem itemLabel="2025" itemValue="2025" />
+            <f:selectItem itemLabel="2026" itemValue="2026" />
+            <f:selectItem itemLabel="2027" itemValue="2027" />
+        </p:selectOneMenu>
+        </h:panelGrid>
+ 
+<br/>       
+      
+<!-- Cryptogramme: -->
+		<p:outputLabel for="crypto" value="Cryptogramme:" />
+        <p:inputMask id="crypto" value="#{formulaire3.crypto}" mask="999"/>
+      <br/>	           
+      
+Commentaire:
+		<p:inputTextarea id="message" value="#{formulaire3.message}" 
+			size="50" required="true"
+			label="Receipt message" style="width: 300px;padding-bottom: 100px;">
+      
+      </p:inputTextarea>
+<br/>
+              
+
+<h:panelGrid columns="1" cellpadding="5">
+
+   
+<h:panelGrid columns="1" cellpadding="5">
+    <p:commandButton value="Valider" type="button" style="left:30px; background:#ADFF2F" onclick="PF('dlg3').show();" />
+</h:panelGrid>
+<p:dialog header="Boite de dialogue" widgetVar="dlg3" position="center top" modal="true" height="100">
+    <h:outputText value="Votre demande de voyage a été enregistrée, 
+    vous receverez un mail de confirmation dans les 24 heures après la demande" />
+</p:dialog>
+</h:panelGrid>
+
+<p:commandButton type="reset" value="Corriger" style="left:40px; background:#FF6347"/>
+</h:panelGrid>
+</h:form>
+ </center>
+
+</h:body>
+</html>

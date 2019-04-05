@@ -1,0 +1,967 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Hotels</title>
+
+<style>
+#test{
+    animation: Test 2s infinite;
+}
+@keyframes Test{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+</style>
+
+</h:head>
+<h:body>
+
+<marquee behavior="alternate" direction="right" scrollamount="8"><img src="resources\Decor\Deroule.png" height="20" width="20"/><strong>Déroulez la liste de choix pour consulter les autres hotels</strong><img src="resources\Decor\Deroule.png" height="20" width="20"/></marquee>
+
+<h:form id="form">  
+    <p:growl id="msgs" showDetail="true" />
+    <p:accordionPanel multiple="true">
+        <p:tab  title="Paris Champs Elysées Hotel *****" rendered = "#{hotelBean.city == 'Paris'}">
+        
+                <div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+           		<h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Paris 1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText
+                    value="Situé dans le centre de Paris, l'Hôtel Regent's Garden dispose de chambres élégantes, d'un jardin et d'une connexion Wi-Fi gratuite. Il se trouve à 10 minutes à pied de l'Arc de Triomphe et du palais des congrès de Paris.
+							Décorées dans un style contemporain, les chambres de l'hôtel sont équipées de la climatisation, d'une télévision à écran plat, d'un iPad et d'un minibar. Toutes sont dotées d'une salle de bains privative avec un sèche-cheveux et des articles de toilette gratuits portant l'écolabel européen. Elles comprennent aussi des couettes en coton issu du commerce équitable." />
+           
+   		<h:panelGrid columns="1" cellpadding="5">
+   		<p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg1').show();" />
+		</h:panelGrid>
+   		</h:panelGrid>
+       	<p:dialog header="Informations Hotel" widgetVar="dlg1" showEffect="explode" hideEffect="bounce" height="130" width="425" position="center-top">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>200€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+         
+        <p:tab title="Hotel de Notre Dame ***" rendered = "#{hotelBean.city == 'Paris'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Paris 2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé au cœur du quartier de Saint-Germain-des-Pré, l’Hotel Des Deux Continents propose des chambres au décor individuel avec une télévision à écran plat, à 10 minutes à pied de la cathédrale de Notre-Dame.
+Donnant sur la cour ou la rue, les chambres des Deux Continents comprennent des meubles anciens. Elles disposent de la climatisation réversible et d'une télévision par satellite. Certaines sont dotées d'un balcon privé." />
+            
+         <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg2').show();" />
+		</h:panelGrid>
+        </h:panelGrid>
+        <p:dialog header="Informations Hotel" widgetVar="dlg2" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>120€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Grand Hotel de Paris ***" rendered = "#{hotelBean.city == 'Paris'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Paris 3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'hôtel L'Interlude (ex Citotel Sport hotel) propose un hébergement au cœur du 12ème arrondissement de Paris, entre la place Daumesnil et le parc paisible du Bois de Vincennes. Une connexion Wi-Fi illimitée est disponible gratuitement." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg3').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>106€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="L'hotel du fauve ***" rendered = "#{hotelBean.city == 'Lyon'}">
+        		<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="LYON1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé dans le centre de Lyon, dans un bâtiment datant du XIXe siècle, l'hôtel Mercure se trouve à 8 minutes à pied de la vieille ville de Lyon et à 5 minutes de marche de la place Bellecour. Il propose des chambres de style Art déco climatisées avec connexion Wi-Fi gratuite." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg4').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg4" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>100€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Les Bad Gones Hotel ***" rendered = "#{hotelBean.city == 'Lyon'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="LYON2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé dans le centre de Lyon, le Best Western Lyon Saint-Antoine propose un hébergement avec connexion Wi-Fi gratuite à 140 mètres de la Place des Jacobins et à 400 mètres de la Place Bellecour. Le personnel de la réception ouverte 24h/24 parle plusieurs langues." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg5').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg5" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>112€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Confluence Park Hotel ****" rendered = "#{hotelBean.city == 'Lyon'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="LYON3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé sur la presqu'île de Lyon, à 10 minutes à pied du Vieux Lyon, le Mercure Lyon Centre Plaza République propose une connexion Wi-Fi gratuite dans tout l'établissement.
+Toutes les chambres comprennent la climatisation, un coffre-fort, une prise électrique internationale, un minibar et une bouteille d'eau. Leur salle de bains privative est pourvue d'un sèche-cheveux et d'articles de toilette gratuits." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg6').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg6" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>185€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="La Canebièrre ***" rendered = "#{hotelBean.city == 'Marseille'}">
+        		<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Marseille 1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'Hôtel Carré Vieux Port est situé dans le centre de Marseille, à 30 mètres du Vieux Port, d'où partent les bateaux pour les îles du Frioul et le château d'If. Il propose des chambres dotées de la climatisation, d'une télévision par satellite à écran plat et d'une connexion Wi-Fi gratuite." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg7').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg7" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>123€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Le Vieux Port Hotel **" rendered = "#{hotelBean.city == 'Marseille'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Marseille 2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Bénéficiant d'une terrasse spacieuse, d'une boutique de souvenirs sur place et d'un terrain de pétanque, l'Hôtel Maison Montgrand - Vieux Port se trouve dans le centre de Marseille, à seulement 5 minutes à pied du Vieux-Port et à 4 km du stade Vélodrome.
+Toutes les chambres climatisées comportent une connexion Wi-Fi gratuite, une télévision par satellite à écran plat et une salle de bains privative." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg8').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg8" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>82€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+              
+        <p:tab title="Santiago Bernabeu Stadium Park Hotel ***" rendered = "#{hotelBean.city == 'Madrid'}">
+        		<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Madrid 1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'AC Hotel Avenida de America, a Marriott Lifestyle Hotel est un établissement élégant, installé dans le quartier de Salamanque, à 5 minutes à pied de la station de métro et gare routière Intercambiador de Avenida de América de Madrid. Vous profiterez d'une salle de sport, ainsi que de chambres modernes et climatisées avec une télévision par satellite." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg9').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg9" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>110€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Maracas Hotel de Madrid *" rendered = "#{hotelBean.city == 'Madrid'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Madrid2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'hôtel Room Mate Alicia surplombe la Plaza Santa Ana de Madrid, dans l'agréable quartier de Las Letras. Les grandes fenêtres offrent une superbe vue sur la place. Les chambres élégantes et climatisées disposent d'une connexion Wi-Fi gratuite et d'une télévision par satellite." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg10').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg10" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>65€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Muchas Gracias Hotel **" rendered = "#{hotelBean.city == 'Madrid'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Madrid 3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Hôtel récemment rénové et modernisé situé au centre-ville. Il est facilement accessible et très bien situé, en plein coeur du quartier résidentiel et des affaires très en vogue de Moncloa-Argüelles.
+
+L'hôtel T3 Tirol de Madrid est le 1er hôtel de la chaîne T3 construit en Espagne. Il se trouve juste en face du grand magasin El Corte Inglés de la rue Calle Princesa et à proximité à pied de la place Plaza de España, du Palais Royal et du campus universitaire." />
+           <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg11').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg11" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>105€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Cabron Hotel de Barcelona ***" rendered = "#{hotelBean.city == 'Barcelone'}">
+        		<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Barcelone 1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'établissement The Corner Hotel vous accueille à Barcelone, à 1,1 km de la Casa Batlló, à 1,5 km du Passeig de Gràcia, à 1,6 km de la place de Catalogne, à 1,7 km de la Casa Milà (La Pedrera) et à 2 km de l'avenue Portal de l'Àngel. Il dispose d'une connexion Wi-Fi gratuite et d'une piscine extérieure ouverte en saison." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg12').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg12" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>150€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="El Catalan Hotel ***" rendered = "#{hotelBean.city == 'Barcelone'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Barcelone 2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'Hotel Casa Bonay est un boutique hôtel situé dans le centre de Barcelone, à 200 mètres de la station de métro Tetuan et à 10 minutes à pied de la place de Catalogne. Il propose une terrasse commune et une connexion Wi-Fi gratuite.
+
+Occupant un bâtiment néoclassique résidentiel du XIXe siècle, les chambres insonorisées arborent un mélange d'éléments traditionnels comme des sols en mosaïque, ainsi que des textiles, un éclairage et un mobilier modernes. Leur minibar est approvisionné en rafraîchissements et en collations d'origine locale. Elles disposent également de la climatisation, d'une connexion Wi-Fi gratuite, d'une télévision de qualité et d'une sélection de magazines. La plupart sont dotées d'un ventilateur de plafond. Leur salle de bains est pourvue de savon naturel Las Lilas. Certains hébergements possèdent un canapé, une terrasse ou un balcon." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg13').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg13" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>220€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+               
+        <p:tab title="Colyseum Hotel **" rendered = "#{hotelBean.city == 'Rome'}">
+        	<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Rome 1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le J.K. Place Roma se situe au cœur de la ville de Rome, à 10 minutes à pied de la place d'Espagne et du Panthéon. Vous dégusterez un petit-déjeuner buffet.
+
+Les chambres élégantes climatisées possèdent une connexion Wi-Fi gratuite, une télévision par satellite à écran plat et un système de haut-parleurs Bose SoundLink Mini. La salle de bains privative en marbre est pourvue d'articles de toilette mis gracieusement à votre disposition, de chaussons, d'une grande douche vitrée, d'un bidet et de peignoirs." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg14').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg14" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>112€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="La Dolce Vita Hotel Club ***" rendered = "#{hotelBean.city == 'Rome'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Rome 2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Doté d'un salon commun, l'établissement YHR Flat 63 se situe à Rome, à 1,5 km du Campo de' Fiori. Il propose une connexion Wi-Fi gratuite et un restaurant.
+
+Cet appartement dispose de 2 chambres, d'un salon, d'une cuisine entièrement équipée avec un coin repas et d'une salle de bains. Il dispose également d'une télévision à écran plat." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg15').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg15" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>2140€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Hotel Viva Italia *" rendered = "#{hotelBean.city == 'Rome'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Rome 3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le Borgo Pio Passetto Papale est un appartement situé à Rome, à seulement 500 mètres de la place Saint-Pierre. Vous disposerez d'une connexion Wi-Fi gratuite et d'une cuisine entièrement équipée.
+
+Offrant une vue sur la capitale, le logement comprend une télévision à écran plat, un coin salon, un bureau ainsi que 2 salles de bains.
+
+Un service de location de vélos est assuré sur place.
+
+Le Vatican se trouve à 600 mètres du Borgo Pio Passetto Papale. L'aéroport de Rome-Ciampino, le plus proche, est situé à 19 km." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg16').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg16" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>70€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="El Duomo de Firenze Hotel **" rendered = "#{hotelBean.city == 'Florence'}">
+        	<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Florence1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Aménagé dans un bâtiment médiéval, l'Antica Torre Di Via Tornabuoni 1 est à seulement 5 minutes à pied du Duomo, dans la rue Tornabuoni, où vous trouverez de nombreuses boutiques de mode. Il propose un toit-terrasse offrant une vue panoramique sur le centre historique de Florence et les collines environnantes." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg17').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg17" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>106€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Ponte Vecchio Plaza ***" rendered = "#{hotelBean.city == 'Florence'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Florence2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé à Florence, à 700 mètres de la basilique Santa Maria Novella, l'établissement La Grancontessa propose une connexion Wi-Fi gratuite, un service de billetterie et un bureau d'excursions. L'établissement se trouve à proximité du palais Strozzi, de la cathédrale Santa Maria del Fiore et de la Piazza del Duomo. L'établissement est situé à 1,6 km de la Galleria dell'Accademia." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg18').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg18" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>220€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Comedia dell Arte Hotel **" rendered = "#{hotelBean.city == 'Florence'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Florence3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé dans le centre historique de Florence, le Residenza Martelli est installé à 100 mètres de la cathédrale. Une connexion Wi-Fi est disponible gratuitement dans l'ensemble des locaux." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg19').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg19" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>115€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="El Vesuvo *" rendered = "#{hotelBean.city == 'Naples'}">
+       		 <div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Naples1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé à 300 mètres du Nouveau Château de Naples, le Latt e Liett propose une connexion Wi-Fi gratuite ainsi que des appartements avec la climatisation, une kitchenette équipée et une vue sur la mer." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg20').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg20" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>50€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Napolitno Hotel **" rendered = "#{hotelBean.city == 'Naples'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Naples2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le Bed et Breakfast Chez Anna vous accueille à Naples, à seulement 350 mètres de la station de métro Vanvitelli, à 2,5 km du Palais royal et à 2 km de la Via Chiaia, réputée pour ses boutiques et ses restaurants de bord de mer. Vous profiterez d'une connexion Wi-Fi gratuite dans l'ensemble des chambres." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg21').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg21" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>100€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+               
+        <p:tab title="Greece Center Hotel Club ***" rendered = "#{hotelBean.city == 'Athènes'}">
+       	 <div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Athenes1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Idéalement situé à Athènes, à deux pas du musée de l'Acropole , l'Acropolis Luxury Apartments vous propose des hébergements décorés dans un style moderne dotés d'une connexion Wi-Fi gratuite. La plupart des logements offrent une vue sur l'Acropole et la cité d'Athènes, tandis que d'autres comprennent également un jacuzzi." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg22').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg22" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>205€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Parthénon Hotel *" rendered = "#{hotelBean.city == 'Athènes'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Athenes2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'auberge de jeunesse Pella Inn se trouve à seulement 2 minutes de marche de la place Monastiraki, où se trouvent des restaurants et des bars, ainsi que le célèbre marché aux puces d'Athènes. Elle dispose d'un bar sur le toit offrant une vue sur l'Acropole et d'une connexion Wi-Fi gratuite dans les parties communes." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg23').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg23" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>66€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="This is Athena! ****" rendered = "#{hotelBean.city == 'Athènes'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Athenes3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé à seulement 100 mètres de la station de métro Monastiraki et à moins de 10 minutes à pied de la place Syntagma, l'Attalos Hotel comprend un bar sur le toit offrant une vue sur l'Acropole. Une connexion Wi-Fi gratuite ainsi qu'un espace informatique sont mis à votre disposition." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg24').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg24" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>280€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Thessalonique Hotel **" rendered = "#{hotelBean.city == 'Thessalonique'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Thessa.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le Mandrino Hotel est situé dans la rue branchée Egnatia de Thessalonique, à quelques minutes à pied des principaux sites touristiques et lieux d'intérêt de la ville. Il propose des chambres climatisées dotées d'une connexion Wi-Fi gratuite.
+
+Les chambres spacieuses du Mandrino comprennent une salle de bains privative avec un sèche-cheveux, une télévision par satellite de 53 cm avec les chaînes à la carte, un réfrigérateur et un coffre-fort. Les draps et les serviettes sont changés tous les jours." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg25').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg25" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>86€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+       <p:tab title="On the sea Dubrovnik Hotel ***" rendered = "#{hotelBean.city == 'Dubrovnik'}">
+       		<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Dubrovnik1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le Buza Apartment se situe au cœur des remparts de la vieille ville de Dubrovnik, protégée par l'UNESCO. Il se trouve à seulement 30 mètres de la plage la plus proche et propose une connexion Wi-Fi gratuite et un hébergement climatisé avec installations modernes." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg26').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg26" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>150€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Croatian Hotel Club **" rendered = "#{hotelBean.city == 'Dubrovnik'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Dubrovnik2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé dans la vieille ville de Dubrovnik, classée au patrimoine mondial de l'UNESCO, le Studio Bafi dispose d'une terrasse offrant une vue sur Dubrovnik et ses remparts. Climatisé, il dispose d'une connexion Wi-Fi gratuite. À seulement quelques pas, vous pourrez vous promener dans la rue animée du Stradun qui regorge de restaurants et de bars." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg27').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg27" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>100€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+            <p:tab title="Banana Split Hotel *" rendered = "#{hotelBean.city == 'Split'}">
+            <div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Split1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé dans un quartier tranquille de Split, à 800 mètres du palais de Dioclétien classé au patrimoine mondial de l'UNESCO, l'Apartment Prestige propose un hébergement meublé de façon moderne avec une connexion Wi-Fi gratuite. Un parking privé gratuit est à votre disposition sur place." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg28').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg28" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>70€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Adriatic Park Hotel ****" rendered = "#{hotelBean.city == 'Split'}">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Split2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé dans le centre de Split, à moins de 6 minutes à pied du palais de Dioclétien et à 200 mètres de la place de la République (Prokurative), l'Apartment Diana propose un hébergement offrant une vue sur la ville. Il se trouve à 400 mètres de la place du Peuple - Pjaca." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg29').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg29" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>212€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+    </p:accordionPanel>
+</h:form>
+
+	<center><p:linkButton outcome="reservation" value="Retour à la page réservation" style="margin-right:20px;">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+
+</h:body>
+</html>

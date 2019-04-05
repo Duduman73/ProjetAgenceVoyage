@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   <style>
+   body {
+    font: 15px Montserrat, sans-serif;
+    line-height: 2; 
+  }
+  
+   .btn-secondary {
+   font: 25px Montserrat, sans-serif;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  padding: 60px;
+  width: 300px;
+  heigh:300px;
+}
+
+#test{
+    animation: Test 3s infinite;
+}
+@keyframes Test{
+    0%{opacity: 1;}
+    50%{opacity: 0.1;}
+    100%{opacity: 1;}
+}
+
+.Aimage{
+background-attachment:fixed;
+    background-image:url(/TestAgenceVoyage/resources/image/image2.jpg);
+    background-size:cover;
+    
+  }
+
+</style>
+
+
+<h:head>
+<title>Agence de voyage</title>
+
+</h:head>
+<h:body styleClass="Aimage">
+<h:panelGroup id="section1" layout="block" style="background:#7B68EE; 
+min-height: 40px; padding-top: 40px; 
+padding-bottom: 40px; font-size:25px;" >
+  <center><h1>Agence de Voyage FreeFly</h1>
+  <p:graphicImage library="image" name="avion1.gif"/></center>
+</h:panelGroup>
+<h:form>
+<p:tabMenu activeIndex="#{param.i}" style="backgroud-color:#FFE4E1">
+    <p:menuitem value="Accueil"  >
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    <p:menuitem value="Qui sommes-nous?" url="/TestAgenceVoyage/biography.xhtml" >
+        <f:param name="i" value="1" />
+    </p:menuitem>
+    <p:menuitem value="Réservation" url="/TestAgenceVoyage/reservation.xhtml" >
+        <f:param name="i" value="2" />
+    </p:menuitem>
+    <p:menuitem value="Contact" url="/TestAgenceVoyage/contact.xhtml">
+        <f:param name="i" value="3" />
+    </p:menuitem>
+</p:tabMenu>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<center><input id="test" type="button" 
+class="btn btn-secondary" 
+value="Réserver ici!!!" onclick="window.location.href='http://localhost:8080/TestAgenceVoyage/reservation.xhtml'"/></center>
+<br/>
+<br/>
+<br/>
+<br/>
+ 
+<center><p:galleria value="#{imagesView.images}" var="image" panelWidth="1000" panelHeight="500" showCaption="true">
+    <p:graphicImage name="demo/#{image}" title="#{image}" style="width:100%; height:100%"/>
+</p:galleria></center>
+
+</h:form>
+</h:body>
+</html>

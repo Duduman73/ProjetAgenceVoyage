@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+<h:head>
+<style>
+ body {
+    font: 15px Montserrat, sans-serif;
+    line-height: 2;
+    color: #F0F8FF;
+    
+  }
+  
+ .Cimage{
+background-attachment:fixed;
+background-image:url(/TestAgenceVoyage/resources/image/contact.jpg);
+background-size:cover;
+}
+
+
+</style>
+
+<title>Agence de voyage</title>
+<script name="jquery/jquery.js" library="primefaces"></script>
+
+</h:head>
+
+<h:body styleClass="Cimage">
+<h:panelGroup id="section1" layout="block" style="background:#90EE90; 
+min-height: 30px; padding-top: 5px; 
+padding-bottom: 5px; font-size:25px; color:#9400D3	;">
+  <center><h1>Agence de Voyage FreeFly</h1>
+</center>
+</h:panelGroup>
+
+<h:form>
+<p:tabMenu activeIndex="#{param.i}">
+<p:menuitem value="Accueil" url="/TestAgenceVoyage/index.xhtml">
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    <p:menuitem value="Qui sommes-nous?" url="/TestAgenceVoyage/biography.xhtml">
+        <f:param name="i" value="1" />
+    </p:menuitem>
+<p:menuitem value="Réservation" url="/TestAgenceVoyage/reservation.xhtml">
+        <f:param name="i" value="2" />
+    </p:menuitem>
+<p:menuitem value="Contact"  url="/TestAgenceVoyage/contact.xhtml">
+        <f:param name="i" value="3" />
+    </p:menuitem>
+    </p:tabMenu>
+</h:form>
+ 
+ <center>
+
+ <h1>Comment nous contacter</h1>
+ <br/>
+ <h2><p:graphicImage library="symbol" name="adresse.png" style="width: 30px; height: 20px;"/><u>Adresse</u></h2>
+ <h3>Agence Lyon 7<br/>12 rue Jean Moulin
+ 69 007 Lyon 7</h3>
+ 
+ <h3>Agence Lyon 3<br/>
+ 25 rue Pasteur
+ 69 003 Lyon 3</h3>
+ 
+ <h2><p:graphicImage library="symbol" name="telephone.png" style="width: 30px; height: 30px;"/><u>Téléphone</u></h2>
+
+ <h3>Agence Lyon 7 <br/>
+ 04.77.42.12.69</h3>
+ 
+ <h3>Agence Lyon 3<br/>
+ 04.77.42.59.87</h3>
+ 
+ 
+ <br/>
+ <br/>
+ <h2><u>Formulaire de contact</u></h2>
+ <h:form>
+ <h:panelGrid columns="1" align-text="center">
+ Nom:
+		
+		<h:inputText id="nom" value="#{receipt.nom}" 
+			size="20" required="true"
+			label="Receipt nom" >
+      </h:inputText>
+      
+    
+      
+  <br/>    
+ Prénom:
+		
+		<h:inputText id="prenom" value="#{receipt.prenom}" 
+			size="20" required="true"
+			label="Receipt prenom" >
+      </h:inputText>
+     
+           
+<br/>		
+		Date :  
+		 <h:inputText type="date" id="date" 
+			size="20" >
+					
+			<f:convertDateTime pattern="d-M-yyyy" />
+		  </h:inputText>
+					
+		  <h:message for="date" style="color:red" />
+			
+<br/>		
+ E-mail:
+		<h:inputText id="email" value="#{receipt.email}" 
+			size="20" required="true"
+			label="Receipt email" >
+      </h:inputText>
+    
+ <br/>
+        <h:outputLabel for="menu" value="Objet:" />
+        <p:selectOneMenu id="menu" value="#{checkboxView.selectedObject}" style="width:125px">
+            <f:selectItem itemLabel="Sélectionner" itemValue="" />
+            <f:selectItem itemLabel="Demander un devis" itemValue="Demander un devis" />
+            <f:selectItem itemLabel="Prendre un rendez-vous" itemValue="Prendre un rendez-vous" />
+            <f:selectItem itemLabel="Des questions sur votre réservation" itemValue="Des questions sur votre réservation" />
+        	<f:selectItem itemLabel="Modifier ou supprimer une réservation" itemValue="modifier ou supprimer une réservation" />
+            <f:selectItem itemLabel="Recrutement" itemValue="Recrutement" />
+            <f:selectItem itemLabel="Une autre demande" itemValue="Une autre demande" />
+        </p:selectOneMenu>
+ 
+<br/>
+ Message:
+		<p:inputTextarea id="Message" value="#{receipt.message}" 
+			size="50" required="true"
+			label="Receipt message" style="width: 300px;padding-bottom: 100px;">
+      
+      </p:inputTextarea>
+<br/>
+
+
+<h:panelGrid columns="1" cellpadding="5">
+    <p:commandButton value="Valider" type="button" style="left:30px; background:#ADFF2F" onclick="PF('dlg2').show();" />
+</h:panelGrid>
+<p:dialog header="Boite de dialogue" widgetVar="dlg2" position="center top" modal="true" height="100">
+    <h:outputText value="Votre demande a été enregistrée" />
+</p:dialog>
+ 
+<br/>
+<p:commandButton type="reset" value="Corriger" style="left:30px; background:#FF6347"/>
+</h:panelGrid>
+</h:form>
+ </center>
+
+</h:body>
+</html>

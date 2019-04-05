@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Hotels</title>
+
+<style>
+#test{
+    animation: Test 2s infinite;
+}
+@keyframes Test{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+</style>
+
+</h:head>
+<h:body>
+
+<marquee behavior="alternate" direction="right" scrollamount="8"><img src="resources\Decor\Deroule.png" height="20" width="20"/><strong>Déroulez la liste de choix pour consulter les autres hotels</strong><img src="resources\Decor\Deroule.png" height="20" width="20"/></marquee>
+
+<h:form id="form">  
+    <p:growl id="msgs" showDetail="true" />
+    <p:accordionPanel multiple="true">             
+        <p:tab title="Colyseum Hotel **">
+        	<div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Rome 1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le J.K. Place Roma se situe au cœur de la ville de Rome, à 10 minutes à pied de la place d'Espagne et du Panthéon. Vous dégusterez un petit-déjeuner buffet.
+
+Les chambres élégantes climatisées possèdent une connexion Wi-Fi gratuite, une télévision par satellite à écran plat et un système de haut-parleurs Bose SoundLink Mini. La salle de bains privative en marbre est pourvue d'articles de toilette mis gracieusement à votre disposition, de chaussons, d'une grande douche vitrée, d'un bidet et de peignoirs." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg14').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg14" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>112€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="La Dolce Vita Hotel Club ***">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Rome 2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Doté d'un salon commun, l'établissement YHR Flat 63 se situe à Rome, à 1,5 km du Campo de' Fiori. Il propose une connexion Wi-Fi gratuite et un restaurant.
+
+Cet appartement dispose de 2 chambres, d'un salon, d'une cuisine entièrement équipée avec un coin repas et d'une salle de bains. Il dispose également d'une télévision à écran plat." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg15').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg15" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>2140€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Hotel Viva Italia *">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Rome 3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Le Borgo Pio Passetto Papale est un appartement situé à Rome, à seulement 500 mètres de la place Saint-Pierre. Vous disposerez d'une connexion Wi-Fi gratuite et d'une cuisine entièrement équipée.
+
+Offrant une vue sur la capitale, le logement comprend une télévision à écran plat, un coin salon, un bureau ainsi que 2 salles de bains.
+
+Un service de location de vélos est assuré sur place.
+
+Le Vatican se trouve à 600 mètres du Borgo Pio Passetto Papale. L'aéroport de Rome-Ciampino, le plus proche, est situé à 19 km." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg16').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg16" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>70€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        </p:accordionPanel>
+</h:form>
+
+	<center><p:linkButton outcome="reservation" value="Retour à la page réservation" style="margin-right:20px;">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+
+</h:body>
+</html>

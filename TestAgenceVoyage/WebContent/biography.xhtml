@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+ <style>
+ body {
+    font: 15px Montserrat, sans-serif;
+    line-height: 2;
+  }
+
+ .Bimage{
+background-attachment:fixed;
+background-image:url(/TestAgenceVoyage/resources/image/biography.jpg);
+background-size:cover;
+    }
+
+</style>
+
+
+<h:head>
+<title>Agence de voyage</title>
+
+</h:head>
+<h:body styleClass="Bimage">
+<h:panelGroup id="section1" layout="block" style="background:#90EE90; 
+min-height: 30px; padding-top: 5px; 
+padding-bottom: 5px; font-size:25px; color:#9400D3	;">
+  <center><h1>Agence de Voyage FreeFly</h1>
+</center>
+</h:panelGroup>
+<h:form>
+<p:tabMenu activeIndex="#{param.i}">
+
+    <p:menuitem value="Accueil" url="/TestAgenceVoyage/index.xhtml" >
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    <p:menuitem value="Qui sommes-nous?" >
+        <f:param name="i" value="1" />
+    </p:menuitem>
+<p:menuitem value="Réservation" url="/TestAgenceVoyage/reservation.xhtml" >
+        <f:param name="i" value="2" />
+    </p:menuitem>
+    <p:menuitem value="Contact"  url="/TestAgenceVoyage/contact.xhtml" >
+        <f:param name="i" value="3" />
+    </p:menuitem>
+</p:tabMenu>
+
+<center>
+<h1> Qui sommes-nous? </h1>
+
+
+
+<h2>Notre expérience</h2>
+Fort de nos 25 ans d'expertise, numéro 1 lyonnais du voyage, nous saurons vous conseiller les meilleurs plans 
+pour rendre vos voyages inoubliables!!
+Un choix sans précédent pour des expériences uniques, accessibles et personnalisées.
+
+<h2>Des voyages pour toutes vos envies</h2>
+À deux, en famille, seul ou entre amis, toutes les possibilités s’offrent à vous !
+Un circuit accompagné dans la destination de vos rêves, un séjour au soleil sur l’une des plus belles plages 
+d'Europe, un voyage sur mesure façonné avec et pour vous, 
+ou encore des vacances à votre goût dans un hôtel ou un club de la collection exclusive.
+
+<h2>Nos partenaires</h2>
+<h:panelGrid columns="6">
+
+<p:graphicImage library="logo" name="aegean.jpg" style="width: 120px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="AirCroatia.jpg" style="width: 120px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="Airfrance.png" style="width: 120px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="alitalia.jpg" style="width: 170px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="Eurolines.png" style="width: 250px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="Flixbus.png" style="width: 250px; height: 100px; background-color:#FFFFFF"/>
+</h:panelGrid>
+<h:panelGrid columns="4">
+<p:graphicImage library="logo" name="Isilines.png" style="width: 250px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="Ouibus.png" style="width: 200px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="SNCF.jpg" style="width: 200px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="Spainair.png" style="width: 150px; height: 100px; background-color:#FFFFFF"/>
+
+</h:panelGrid>
+<h:panelGrid columns="6">
+<p:graphicImage library="logo" name="HBestWestern.png" style="width: 100px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="HCardoso.jpg" style="width: 150px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="HIbis.png" style="width: 100px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="Hilton.png" style="width: 150px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="HMelia.jpg" style="width: 200px; height: 100px; background-color:#FFFFFF"/>
+<p:graphicImage library="logo" name="HMercure.png" style="width: 200px; height: 100px; background-color:#FFFFFF"/>
+</h:panelGrid>
+</center>
+</h:form>
+</h:body>
+</html>

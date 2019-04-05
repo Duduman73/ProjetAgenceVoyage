@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+ <h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Formulaire Choix Ville</title>
+
+
+<style>
+
+.column1 {
+    width: 35%;
+    text-align: center;
+
+}
+.column2 {
+    width: 25%;
+    text-align: center;
+
+}
+
+.panelGridCenter {
+    margin: 0 auto;
+}
+
+marquee {
+    font-size:26px;
+}
+
+</style>
+
+</h:head>
+
+<h:body style= "background: #fffffff">
+	
+	<h:panelGrid style= "width: 100%">
+  <marquee behavior="scroll" direction="right" scrollamount="10">Réservez dès aujourd'hui!<img src="resources\Decor\avion.jpg" height="80" width="100"/></marquee>
+  </h:panelGrid>
+	<br></br>
+	<p:growl id="msgs" showDetail="true" />
+		<h:panelGrid columns="3" columnClasses="column1" bgcolor="#00000">
+	
+	<h:panelGrid>
+ 	<p:graphicImage library="ImagePageResa" name="laplage.jpg" style="height: 330 ; width: 785"/>
+    </h:panelGrid>
+	
+	<h:panelGrid>
+    <p:panel header="Votre destination" style="margin-bottom:10px; background: #DEF5F3; text-align:center;">
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="5" style="height: 165">
+            <p:outputLabel for="country" value="Pays: " />
+            <p:selectOneMenu id="country" value="#{dropdownView.country}" style="width:150px">
+                <p:ajax listener="#{dropdownView.onCountryChange}" update="city" />
+                <f:selectItem itemLabel="Quel pays?" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{dropdownView.countries}" />
+            </p:selectOneMenu>
+ 
+            <p:outputLabel for="city" value="Ville: " />
+            <p:selectOneMenu id="city" value="#{dropdownView.city}" style="width:150px">
+                <f:selectItem itemLabel="Quelle ville?" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{dropdownView.cities}" />
+            </p:selectOneMenu>
+        </h:panelGrid>
+ 
+        <p:separator />
+ 
+        <center><p:commandButton value="Rechercher" action="#{dropdownView.validationVille()}" /></center><br></br>
+          <center><p:link outcome="index" value="Retour à l'accueil">
+    <f:param name="productId" value="10" />
+	</p:link></center>
+        
+    </h:form>
+    </p:panel>
+    </h:panelGrid>
+    
+    <h:panelGrid>
+ 	<p:graphicImage library="ImagePageResa" name="laplage.jpg" style="height: 330 ; width: 785"/>
+    </h:panelGrid>
+    
+ 	</h:panelGrid>
+  
+  <h:panelGrid columns="4" columnClasses="column2" style= "width: 100%">
+  
+  <h:outputLink id="Dubrovnik" value="http://localhost:8080/TestAgenceVoyage/dubrovnik.xhtml"><h:panelGrid bgcolor="#00000" style="font-size:18px; color: #ffffff">
+  <p:graphicImage library="ImagePageResa" name="DubrovnikPR.jpg" style="width: 465; height: 300" />
+  <center><h1>Dubrovnik à partir de 250€</h1></center>
+  </h:panelGrid></h:outputLink>
+  <h:outputLink id="Rome" value="http://localhost:8080/TestAgenceVoyage/rome.xhtml"><h:panelGrid bgcolor="#00000" style="font-size:18px; color: #ffffff">
+  <p:graphicImage library="ImagePageResa" name="RomePR.jpg" style="width: 465; height: 300"/>
+  <center><h1>Rome à partir de 300€</h1></center>
+  </h:panelGrid></h:outputLink>
+  <h:outputLink id="Athenes" value="http://localhost:8080/TestAgenceVoyage/athenes.xhtml"><h:panelGrid bgcolor="#00000" style="font-size:18px; color: #ffffff">
+  <p:graphicImage library="ImagePageResa" name="AthenesPR.jpg" style="width: 465; height: 300"/>
+  <center><h1>Athènes à partir de 325€</h1></center>
+  </h:panelGrid></h:outputLink>
+  <h:outputLink id="Paris" value="http://localhost:8080/TestAgenceVoyage/paris.xhtml"><h:panelGrid bgcolor="#00000" style="font-size:18px; color: #ffffff" text-align="justify">
+  <p:graphicImage library="ImagePageResa" name="ParisPR.jpg" style="width: 465; height: 300"/>
+  <center><h1>Paris à partir de 400€</h1></center>
+  </h:panelGrid></h:outputLink>
+  </h:panelGrid>
+  
+  <h:panelGrid style= "width: 100%">
+  <marquee behavior="scroll" direction="left" scrollamount="10"><img src="resources\Decor\avion1.jpg" height="80" width="100"/>Envolez-vous dès demain!</marquee>
+  </h:panelGrid>
+  
+</h:body>
+</html>
+

@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+
+<h:head>
+<style>
+ body {
+    font: 15px Montserrat, sans-serif;
+    line-height: 1;
+    color: #F0F8FF;
+    
+  }
+  
+ .Eimage{
+background-attachment:fixed;
+background-image:url(/TestAgenceVoyage/resources/image/formulaire2.jpg);
+background-size:cover;
+}
+
+
+</style>
+
+<title>Agence de voyage</title>
+<script name="jquery/jquery.js" library="primefaces"></script>
+
+</h:head>
+
+<h:body styleClass="Eimage">
+
+
+ <center>
+
+ <h1>Formulaire de séjour</h1>
+ <br/>
+ 
+ <h:form>
+ <h:panelGrid columns="1" align-text="center">
+
+    
+ <br/>
+ 
+        <h:outputLabel for="menu" value="Nombre de voyageurs:" />
+        <p:selectOneMenu id="object" value="#{checkboxView2.selectedObject}" style="width:125px">
+            <f:selectItem itemLabel="Sélectionner" itemValue="" />
+            <f:selectItem itemLabel="1" itemValue="1" />
+            <f:selectItem itemLabel="2" itemValue="2" />
+            <f:selectItem itemLabel="3" itemValue="3" />
+        	<f:selectItem itemLabel="4" itemValue="4" />
+            <f:selectItem itemLabel="5" itemValue="5" />
+        </p:selectOneMenu>
+        
+         <h:outputLabel for="menu" value="Nombre de chambre simple:" />
+        <p:selectOneMenu id="simple" value="#{checkboxView2.selectedRoom}" style="width:125px">
+            <f:selectItem itemLabel="Sélectionner" itemValue="" />
+            <f:selectItem itemLabel="0" itemValue="0" />
+            <f:selectItem itemLabel="1" itemValue="1" />
+            <f:selectItem itemLabel="2" itemValue="2" />
+        	<f:selectItem itemLabel="3" itemValue="3" />
+            <f:selectItem itemLabel="4" itemValue="4" />
+            <f:selectItem itemLabel="5" itemValue="5" />
+        </p:selectOneMenu>
+        
+         <h:outputLabel for="menu" value="Nombre de chambre double:" />
+        <p:selectOneMenu id="room" value="#{checkboxView2.selectedRoom}" style="width:125px">
+            <f:selectItem itemLabel="Sélectionner" itemValue="" />
+            <f:selectItem itemLabel="0" itemValue="0" />
+            <f:selectItem itemLabel="1" itemValue="1" />
+            <f:selectItem itemLabel="2" itemValue="2" />
+        	<f:selectItem itemLabel="3" itemValue="3" />
+            <f:selectItem itemLabel="4" itemValue="4" />
+            <f:selectItem itemLabel="5" itemValue="5" />
+        </p:selectOneMenu>
+        </h:panelGrid>
+        
+        
+ 
+<br/>
+
+<!-- nombre de jour: -->
+		<p:outputLabel for="jour" value="Nombre de jour:" /><br/>
+        <p:inputMask id="jour" value="#{formulaire2.jour}" mask=" 99"/>
+      <br/>	 
+      <br/>
+   
+      <!-- nombre de nuit: -->
+		<p:outputLabel for="nuit" value="Nombre de nuit:" /><br/>
+        <p:inputMask id="nuit" value="#{formulaire2.nuit}" mask=" 99"/>
+      <br/>	     
+
+<h:form>
+    <p:growl id="form22" align-text="center"/>
+ 
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+    <h:outputText value="Petit-déjeuner: " />
+        <p:selectBooleanButton id="value1" value="#{selectBooleanView.value1}" onLabel="Oui" offLabel="Non" style="width:60px"/>
+    
+        <h:outputText value="J'accepte les conditions générales de vente: " />
+        <p:selectBooleanButton id="value2" value="#{selectBooleanView.value2}" onLabel="Oui" offLabel="Non" style="width:60px" />
+ 
+        <h:outputText value="Souscrire à la newsletter: " />
+        <p:selectBooleanButton id="value3" value="#{selectBooleanView.value3}" onLabel="Oui" offLabel="Non" style="width:60px"/>
+        
+        <h:outputText value="Souscrire à une assurance annulation (28€): " />
+        <p:selectBooleanButton id="value4" value="#{selectBooleanView.value4}" onLabel="Oui" offLabel="Non" style="width:60px"/>
+        
+        <h:outputText value="Souscrire à une assurance Plus* (85€): " />
+        <p:selectBooleanButton id="value5" value="#{selectBooleanView.value5}" onLabel="Oui" offLabel="Non" style="width:60px">
+        
+        </p:selectBooleanButton>
+    </h:panelGrid>
+ 
+    <p:linkButton value="Valider" outcome="formulaire3" style="left:30px; background:#ADFF2F">
+</p:linkButton>
+<br/>
+<br/>
+<p:commandButton type="reset" value="Corriger" style="left:35px; background:#FF6347"/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h4>*Couvre les frais médicaux à hauteur de 200 000 €<br/>Assure en cas de vol/pertes de vos bagages<br/>
+        Assure en cas de vol interrompu ou modifié par les compagnies de transport</h4>
+</h:form>
+</h:form>
+ </center>
+
+
+	  
+
+
+</h:body>
+</html>

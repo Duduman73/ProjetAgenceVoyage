@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+   
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Hotels</title>
+
+<style>
+#test{
+    animation: Test 2s infinite;
+}
+@keyframes Test{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+</style>
+
+</h:head>
+<h:body>
+
+<marquee behavior="alternate" direction="right" scrollamount="8"><img src="resources\Decor\Deroule.png" height="20" width="20"/><strong>Déroulez la liste de choix pour consulter les autres hotels</strong><img src="resources\Decor\Deroule.png" height="20" width="20"/></marquee>
+
+<h:form id="form">  
+    <p:growl id="msgs" showDetail="true" />
+    <p:accordionPanel multiple="true">
+       <p:tab title="Greece Center Hotel Club ***">
+       	 <div id="test" align="right">
+  			  	<font color="red" size="5px"><b>OFFRE EXCEPTIONELLE</b></font>
+				</div>
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Athenes1.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Idéalement situé à Athènes, à deux pas du musée de l'Acropole , l'Acropolis Luxury Apartments vous propose des hébergements décorés dans un style moderne dotés d'une connexion Wi-Fi gratuite. La plupart des logements offrent une vue sur l'Acropole et la cité d'Athènes, tandis que d'autres comprennent également un jacuzzi." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg22').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg22" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>205€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="Parthénon Hotel *">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Athenes2.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="L'auberge de jeunesse Pella Inn se trouve à seulement 2 minutes de marche de la place Monastiraki, où se trouvent des restaurants et des bars, ainsi que le célèbre marché aux puces d'Athènes. Elle dispose d'un bar sur le toit offrant une vue sur l'Acropole et d'une connexion Wi-Fi gratuite dans les parties communes." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg23').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg23" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>66€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        
+        <p:tab title="This is Athena! ****">
+            <h:panelGrid columns="3" cellpadding="10">
+                <p:graphicImage library="ImageHotel" name="Athenes3.jpg" style="height: 300 ; width: 400" />
+                <h:outputText value="Situé à seulement 100 mètres de la station de métro Monastiraki et à moins de 10 minutes à pied de la place Syntagma, l'Attalos Hotel comprend un bar sur le toit offrant une vue sur l'Acropole. Une connexion Wi-Fi gratuite ainsi qu'un espace informatique sont mis à votre disposition." />
+            <h:panelGrid columns="1" cellpadding="5">
+   		 <p:commandButton value="Consulter Fiche" type="button" onclick="PF('dlg24').show();" />
+		</h:panelGrid>
+            </h:panelGrid>
+            <p:dialog header="Informations Hotel" widgetVar="dlg24" showEffect="explode" hideEffect="bounce" height="130" width="425">
+		<h:panelGrid columns="3" width="100">
+		<h:panelGrid>
+   		<b>280€/nuits</b>
+    </h:panelGrid>
+    <h:panelGrid>
+    <i>Date d'arrivée:</i>
+    <input type="date" name="deb" placeholder="Choisir une date" />
+    <br></br>
+    <br></br>
+    <i>Date de départ:</i>
+   	<input type="date" name="fin" placeholder="Choisir une date" />
+    </h:panelGrid>
+    <h:panelGrid>
+    <center><p:linkButton outcome="formulaire1" value="Réservez Ici!" style="margin-right:20px">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+    </h:panelGrid>
+    </h:panelGrid>
+	</p:dialog>
+        </p:tab>
+        </p:accordionPanel>
+</h:form>
+
+	<center><p:linkButton outcome="reservation" value="Retour à la page réservation" style="margin-right:20px;">
+    <f:param name="productId" value="10" />
+	</p:linkButton></center>
+
+</h:body>
+</html>

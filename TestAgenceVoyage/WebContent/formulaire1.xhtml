@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xsl:stylesheet [ <!ENTITY times "&#8855;"> ]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://xmlns.jcp.org/jsf/core"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<style>
+ body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 2;
+    color: #F0F8FF;
+    
+  }
+  
+ .Dimage{
+background-attachment:fixed;
+background-image:url(/TestAgenceVoyage/resources/image/formulaire1.jpg);
+background-size:cover;
+}
+
+
+</style>
+
+<title>Agence de voyage</title>
+<script name="jquery/jquery.js" library="primefaces"></script>
+
+</h:head>
+
+<h:body styleClass="Dimage">
+ 
+ <center>
+ <h2><u>Formulaire de contact</u></h2>
+ <h:form>
+ <h:panelGrid columns="1" align-text="center">
+ 
+ <h:form>
+    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <p:selectOneRadio>
+            <f:selectItem itemLabel="M." itemValue="Monsieur" />
+            <f:selectItem itemLabel="Mme" itemValue="Madame" />
+            <f:selectItem itemLabel="Mlle" itemValue="Mademoiselle" />
+        </p:selectOneRadio>
+    </h:panelGrid>
+    </h:form>
+ 
+ Nom:
+		<h:inputText id="nom" value="#{formulaire1.nom}" style="width: 230px;padding-bottom: 10px;" required="true" label="Contact nom" >
+      </h:inputText>
+      <br/>  
+        
+ Prénom:
+		<h:inputText id="prenom" value="#{formulaire1.prenom}" style="width: 230px;padding-bottom: 10px;" required="true" label="Contact prenom" >
+      </h:inputText>
+      <br/>	
+      
+Rue:
+		<h:inputText id="rue" value="#{formulaire1.rue}" style="width: 230px;padding-bottom: 10px;" required="true" label="Contact rue" >
+      </h:inputText>
+      <br/>	
+      
+<!-- Code postal: -->
+		<p:outputLabel for="codePostal" value="Code Postal:" />
+        <p:inputMask id="codePostal" value="#{formulaire1.codePostal}" mask=" 99999"/>
+      <br/>	      
+      
+Ville:
+		<h:inputText id="ville" value="#{formulaire1.ville}" style="width: 230px;padding-bottom: 10px;" required="true" label="Contact ville" >
+      </h:inputText>
+      <br/>	      		
+
+<!--  Téléphone: -->
+<p:outputLabel for="telephone" value="Téléphone fixe:" />
+        <p:inputMask id="telephone" value="#{formulaire1.telephone}" mask=" 99-99-99-99-99"/>
+		
+      <br/>	
+      
+<!--  Mobile: -->
+		<p:outputLabel for="mobile" value="Téléphone portable:" />
+        <p:inputMask id="mobile" value="#{formulaire1.mobile}" mask=" 99-99-99-99-99"/>
+      <br/>	
+            
+ <!--E-mail:-->
+		<p:outputLabel for="email" value="E-mail:" style="width: 600px;padding-bottom: 100px"/>
+        <p:inputMask id="email" value="#{formulaire1.email}" mask="aaaaaaaaaaaa@aaaaaaa.aaa"/>
+      <br/>
+
+        
+
+<h:panelGrid columns="1" cellpadding="5">
+
+   
+<p:linkButton value="Valider" outcome="formulaire2" style="left:30px; background:#ADFF2F">
+</p:linkButton>
+
+</h:panelGrid>
+<br/>
+<p:commandButton type="reset" value="Corriger" style="left:35px; background:#FF6347"/>
+</h:panelGrid>
+</h:form>
+ </center>
+
+	  
+
+
+</h:body>
+</html>
